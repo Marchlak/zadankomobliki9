@@ -1,28 +1,18 @@
 package com.example.libraryapp;
 
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
+import com.google.gson.annotations.SerializedName;
 
-@Entity(tableName = "book")
+import java.util.List;
+
 public class Book {
-
-    @PrimaryKey(autoGenerate = true)
-    private int id;
+    @SerializedName("title")
     private String title;
-    private String author;
-
-    public Book(String title, String author) {
-        this.title = title;
-        this.author = author;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    @SerializedName("author_name")
+    private List<String> authors;
+    @SerializedName("cover_i")
+    private String cover;
+    @SerializedName("number_of_pages_median")
+    private String numberOfPages;
 
     public String getTitle() {
         return title;
@@ -32,11 +22,27 @@ public class Book {
         this.title = title;
     }
 
-    public String getAuthor() {
-        return author;
+    public List<String> getAuthors() {
+        return authors;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setAuthors(List<String> authors) {
+        this.authors = authors;
+    }
+
+    public String getCover() {
+        return cover;
+    }
+
+    public void setCover(String cover) {
+        this.cover = cover;
+    }
+
+    public String getNumberOfPages() {
+        return numberOfPages;
+    }
+
+    public void setNumberOfPages(String numberOfPages) {
+        this.numberOfPages = numberOfPages;
     }
 }
